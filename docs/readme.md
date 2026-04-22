@@ -1,37 +1,29 @@
 DOCUMENTAÇÃO DO PROJETO TERMÔPETS
 
-1. DESCRIÇÃO DO PROJETO
-O projeto TermoPets tem como objetivo monitorar a temperatura do asfalto para evitar danos à saúde de animais, utilizando Internet das Coisas (IoT).
+## 1. DESCRIÇÃO DO PROJETO
+As ilhas de calor são fenômenos que causam grandes problemas em muitas cidades ao redor do mundo; elas são as principais responsáveis pelos aumentos de temperaturas em determinadas superfícies como asfalto, tijolos e concreto. Essas altas temperaturas não só prejudicam a saúde do ser humano, mas também a de cães-guias, pets e cavalos da cavalaria da polícia, que ficam muitas vezes expostos a esse fenômeno por circularem neste ambiente. Visto isso, esse trabalho tem como finalidade desenvolver um sistema com base na Internet das Coisas (IoT) intitulado “TermôPets”, dedicado ao acompanhamento de temperatura em tempo real da principal superfície urbana, o asfalto.
 
-2. FUNCIONAMENTO DO SISTEMA
-O sistema funciona por meio da leitura de temperatura realizada por um sensor. Os dados são enviados para o ESP32, que processa as informações e aciona um LED conforme o nível de temperatura.
+## 2. FUNCIONAMENTO DO SISTEMA
+O sistema utiliza sensores infravermelhos de temperatura, instalados em pontos estratégicos urbanos como postes, aptos a medir a temperatura do terreno sem precisar de ter uma proximidade física. As informações obtidas serão direcionadas via protocolo MQTT para uma plataforma digital que indicará a temperatura no trajeto desejado, mostrará um trajeto seguro  e enviará alertas para os tutores, se necessário. Além disso, pretendemos utilizar ícones visuais urbanos, como placas de LEDs nos postes, que indicarão a temperatura atual. O propósito do sistema é  auxiliar na construção de uma cidade mais acessível, saudável e sustentável, impulsionando uma atividade mais segura para pessoas e animais.
 
-Além disso, os dados são enviados via protocolo MQTT para um broker, permitindo o monitoramento remoto em tempo real.
-
-3. HARDWARE UTILIZADO
+## 3. HARDWARE UTILIZADO
 - ESP32
 - Sensor de temperatura
-- LED (atuador)
+- LEDs
 - Fonte de alimentação
 
-4. COMUNICAÇÃO MQTT
-O ESP32 se conecta a uma rede Wi-Fi e envia os dados de temperatura para um broker MQTT.
+## 4. COMUNICAÇÃO MQTT
+No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de temperatura em tópicos específicos. Um broker MQTT na nuvem armazenará e distribuirá as mensagens para assinantes, como a plataforma de visualização e aplicativos móveis. A utilização de mensagens retidas permitirá que novos clientes recebam a última temperatura publicada imediatamente após a conexão.Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma digital ocorre via protocolo MQTT (Message Queuing Telemetry Transport), escolhido por sua leveza e eficiência em aplicações IoT.Conforme a necessidade de especificação do sistema, o broker utilizado é o Eclipse Mosquitto, um broker de código aberto amplamente adotado em ambientes acadêmicos e industriais pela sua confiabilidade e suporte ao protocolo MQTT v3.1/v3.1.1.
 
-Os dados são publicados em um tópico e podem ser acessados por outras aplicações, como plataformas de monitoramento.
-
-5. INTEGRAÇÃO DO SISTEMA
+## 5. INTEGRAÇÃO DO SISTEMA
 O sensor coleta os dados → o ESP32 processa → envia via MQTT → o LED é acionado conforme a temperatura.
 
-6. COMO REPRODUZIR O PROJETO
-1. Montar o circuito conforme o diagrama
-2. Configurar o código no ESP32
-3. Conectar à rede Wi-Fi
-4. Executar o código
-5. Monitorar os dados via MQTT
+## 6. COMO REPRODUZIR O PROJETO
+1. Configurar o código no ESP32
+2. Conectar à rede Wi-Fi
+3. Executar o código
+4. Monitorar os dados via MQTT
 
-7. PROTOCOLOS UTILIZADOS
+## 7. PROTOCOLOS UTILIZADOS
 - Comunicação Wi-Fi (TCP/IP)
 - Protocolo MQTT
-
-8. OBSERVAÇÕES
-O sistema pode ser expandido para integração com aplicativos e sistemas de monitoramento urbano.
