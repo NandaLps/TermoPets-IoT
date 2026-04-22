@@ -16,8 +16,19 @@ O sistema utiliza sensores infravermelhos de temperatura, instalados em pontos e
 No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de temperatura em tópicos específicos. Um broker MQTT na nuvem armazenará e distribuirá as mensagens para assinantes, como a plataforma de visualização e aplicativos móveis. A utilização de mensagens retidas permitirá que novos clientes recebam a última temperatura publicada imediatamente após a conexão.Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma digital ocorre via protocolo MQTT (Message Queuing Telemetry Transport), escolhido por sua leveza e eficiência em aplicações IoT.Conforme a necessidade de especificação do sistema, o broker utilizado é o Eclipse Mosquitto, um broker de código aberto amplamente adotado em ambientes acadêmicos e industriais pela sua confiabilidade e suporte ao protocolo MQTT v3.1/v3.1.1.
 
 ## 5. INTEGRAÇÃO DO SISTEMA
-O sensor coleta os dados → o ESP32 processa → envia via MQTT → o LED é acionado conforme a temperatura.
-
+```mermaid
+flowchart TD
+    A[Inicio] --> B[Ler temperatura do sensor]
+    B --> C[Processar dados no ESP32]
+    C --> D{Temperatura maior que 30}
+    D -- Sim --> E[LED alerta piscando]
+    D -- Nao --> F[LED normal ligado]
+    E --> G[Enviar dados via MQTT]
+    F --> G
+    G --> H[Dados no broker]
+    H --> I[Atualizar plataforma]
+    I --> B
+```
 ## 6. COMO REPRODUZIR O PROJETO
 1. Montar circuito
 2. Configurar o código no ESP32
