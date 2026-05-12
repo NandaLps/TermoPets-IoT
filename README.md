@@ -33,15 +33,18 @@ O código foi desenvolvido para o ESP32 e realiza a seguintes tarefas:
 - Sensor de tempertura chamado MLX90614
 - Módulo de LEDs
 - Fonte de alimentação
+- HiveMQ
+- Wokwi (plataforma para montagem)
 
 # 5. Comunicação MQTT
-No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de temperatura em tópicos específicos. Um broker MQTT na nuvem armazenará e distribuirá as mensagens para assinantes, como a plataforma de visualização e aplicativos móveis. A utilização de mensagens retidas permitirá que novos clientes recebam a última temperatura publicada imediatamente após a conexão.
+No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de temperatura em tópicos específicos. Um broker MQTT armazenará e distribuirá as mensagens para assinantes, como a plataforma de visualização e aplicativos móveis. A utilização de mensagens retidas permitirá que novos clientes recebam a última temperatura publicada imediatamente após a conexão.
 
 # 6. Como executar ?
-1. Configurar Wi-fi no código
-2. Configurar o broker MQTT
-3. Fazer upload do código no ESP32
-4. Monitorar os dados
+1. Abrir a plataforma Wokwi.
+2. Montar o circuito utilizando ESP32, DS18B20 e NeoPixel.
+3. Inserir o código disponibilizado neste repositório.
+4. Executar a simulação.
+5. Utilizar MQTT Explorer para visualizar os dados MQ
 
 # 7. Imagens
 
