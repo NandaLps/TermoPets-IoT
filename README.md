@@ -32,7 +32,7 @@ O código foi desenvolvido para o ESP32 e realiza a seguintes tarefas:
 - ESP32
 - Sensor de tempertura chamado MLX90614
 - Módulo de LEDs
-- Fonte de alimentação
+- Resistor
 - HiveMQ
 - Wokwi (plataforma para montagem)
 
@@ -46,8 +46,18 @@ No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de tempe
 4. Executar a simulação.
 5. Utilizar MQTT Explorer para visualizar os dados MQ
 
-# 7. Imagens
 
+# 7. Software desenvolvido
+-O software foi desenvolvido em linguagem C++ utilizando, o sistema realiza:
+-conexão Wi-Fi;
+-conexão MQTT;
+-leitura do sensor;
+-controle do LED;
+-envio dos dados de temperatura em tempo real
 
-# 8. Vídeo
+O protocolo MQTT foi utilizado para comunicação IoT devido à sua leveza e eficiência em aplicações embarcadas.
+
+# 8. Imagens
+
+# 9. Vídeo
 
