@@ -48,12 +48,12 @@ No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de tempe
 
 
 # 7. Software desenvolvido
--O software foi desenvolvido em linguagem C++ utilizando, o sistema realiza:
--conexão Wi-Fi;
--conexão MQTT;
--leitura do sensor;
--controle do LED;
--envio dos dados de temperatura em tempo real
+- O software foi desenvolvido em linguagem C++ utilizando, o sistema realiza:
+- conexão Wi-Fi;
+- conexão MQTT;
+- leitura do sensor;
+- controle do LED;
+- envio dos dados de temperatura em tempo real
 
 O protocolo MQTT foi utilizado para comunicação IoT devido à sua leveza e eficiência em aplicações embarcadas.
 
