@@ -41,7 +41,7 @@ No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de tempe
 
 # 6. Como executar ?
 1. Abrir a plataforma Wokwi.
-2. Montar o circuito utilizando ESP32, DS18B20 e NeoPixel.
+2. Montar o circuito utilizando ESP32, DS18B20( escolhido somente para a simulação) e LED (NeoPixel).
 3. Inserir o código disponibilizado neste repositório.
 4. Executar a simulação.
 5. Utilizar MQTT Explorer para visualizar os dados MQ
