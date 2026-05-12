@@ -15,7 +15,21 @@ Esse trabalho tem como finalidade desenvolver um sistema com base na Internet da
 ## 1.1 Funcionamento 
 O sistema utiliza sensores infravermelhos de temperatura, instalados em pontos estratégicos urbanos como postes, aptos a medir a temperatura do terreno sem precisar de ter uma proximidade física. As informações obtidas serão direcionadas para uma plataforma digital que indicará a temperatura no trajeto desejado, mostrará um trajeto seguro  e enviará alertas para os tutores, se necessário. Além disso, pretendemos utilizar ícones visuais urbanos, como placas de LEDs nos postes, que indicarão a temperatura atual. O propósito do sistema é auxiliar na construção de uma cidade mais acessível, saudável e sustentável, impulsionando uma atividade mais segura para pessoas e animais.
 
-# 2. Estrutura do projeto
+```mermaid
+flowchart TD
+    A[Inicio] --> B[Ler temperatura do sensor]
+    B --> C[Processar dados no ESP32]
+    C --> D{Temperatura maior que 30}
+    D -- Sim --> E[LED alerta piscando]
+    D -- Nao --> F[LED normal ligado]
+    E --> G[Enviar dados via MQTT]
+    F --> G
+    G --> H[Dados no broker]
+    H --> I[Atualizar plataforma]
+    I --> B
+```
+
+# 2. Estrutura do repositório
 - code/ --> código do ESP32
 - docs/ --> documentação do projeto
 - images/ --> diagrama e imagens
