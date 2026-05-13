@@ -36,11 +36,10 @@ Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma 
 | Componente | Função |
 |---|---|
 | ESP32 | Microcontrolador principal |
-| DS18B20 | Sensor de temperatura |
-| NeoPixel WS2812B | LED RGB para sinalização |
-| Resistor 4.7kΩ | Pull-up do sensor |
+| MLX90614 | Sensor de temperatura |
+| LED | LED RGB para sinalização |
+| Resistor | Pull-up do sensor |
 | HiveMQ | Broker MQTT |
-| MQTT Explorer | Monitoramento MQTT |
 
 ## CONSIDERAÇÕES
 O projeto se caracteriza como uma aplicação de Internet das Coisas (IoT), integrando sensores, atuadores e comunicação em rede para monitoramento remoto e tomada de decisão em tempo real.
