@@ -53,7 +53,7 @@ O código foi desenvolvido para o ESP32 e realiza a seguintes tarefas:
   | Componente | Função |
 |---|---|
 | ESP32 | Microcontrolador principal |
-| | Sensor de temperatura |
+| MLX90614 | Sensor de temperatura |
 | LED | LED RGB para sinalização |
 | Resistor | Pull-up do sensor |
 | HiveMQ | Broker MQTT |
