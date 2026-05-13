@@ -54,6 +54,8 @@ Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma 
 | LED | LED RGB para sinalização |
 | Resistor | Pull-up do sensor |
 | HiveMQ | Broker MQTT |
+| Wokwi| plataforma para montagem |
+
 
 ## CONSIDERAÇÕES
 O projeto se caracteriza como uma aplicação de Internet das Coisas (IoT), integrando sensores, atuadores e comunicação em rede para monitoramento remoto e tomada de decisão em tempo real.
