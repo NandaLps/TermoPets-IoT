@@ -60,7 +60,7 @@ No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de tempe
 2. Montar o circuito utilizando ESP32, DS18B20( escolhido somente para a simulação) e LED (NeoPixel).
 3. Inserir o código disponibilizado neste repositório.
 4. Executar a simulação.
-5. Utilizar MQTT Explorer para visualizar os dados MQ
+5. Utilizar HiveMQ para visualizar os dados MQ
 
 
 # 7. Software desenvolvido
