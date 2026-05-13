@@ -43,13 +43,6 @@ O código foi desenvolvido para o ESP32 e realiza a seguintes tarefas:
 - Controlas o LED como atuador
 
 # 4. Hardware escolhido
-- ESP32
-- Sensor de tempertura chamado MLX90614
-- Módulo de LEDs
-- Resistor
-- HiveMQ
-- Wokwi (plataforma para montagem)
-
 | Componente | Função |
 |---|---|
 | ESP32 | Microcontrolador principal |
