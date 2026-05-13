@@ -28,11 +28,25 @@ O sensor será fixado em um suporte no poste, direcionado para o asfalto. Seus p
 Como comunicador visual, será utilizado um conjunto de LEDs instalados em postes bem localizados na cidade, assim formando uma placa indicadora da temperatura do asfalto para os tutores. A placa terá um design intuitivo, onde as cores do plano de fundo da imagem indicará junto com o indicador de grau numérico, por exemplo: entre 0⁰C e 25⁰C = cor verde, entre 26⁰C e 30⁰C = cor amarela e acima de 30⁰C = cor vermelha. Esse método permite que os tutores tenham um retorno imediato da condição térmica sem precisar abrir o seu dispositivo móvel.
 A placa será controlada pelo microcontrolador ESP32, por meio de transistores adequados projetados conforme a programação feita. Esse sistema contém um programa de proteção e alerta, onde em caso de altas temperaturas, o painel aciona uma sequência de iluminação piscante que funciona como sinal de alerta para todos os pedestres.
 
+| Temperatura | Cor do LED |
+|---|---|
+| Até 25°C | Verde |
+| 26°C até 30°C | Amarelo |
+| Acima de 30°C | Vermelho |
+
 ## 4. Comunicação com a IoT via MQTT
 A transmissão dos dados do sensor para a plataforma digital será realizada pelo protocolo MQTT. O MQTT é um protocolo de mensagens leve, baseado em TCP/IP, desenvolvido para aplicações IoT. Ele utiliza uma arquitetura de publicação/assinatura (publish/subscribe) com controle de qualidade de serviço (QoS), fila de mensagens e mensagens retidas, possibilitando comunicação bidirecional entre dispositivos e servidores. Após o estabelecimento de uma conexão MQTT, qualquer número de mensagens pode ser enviado nos dois sentidos sem a sobrecarga de protocolos como HTTP. Essas características reduzem o consumo de banda e permitem que dispositivos com recursos limitados, como microcontroladores, transmitam dados de forma eficiente (HIVEMQ, 2026).
 No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de temperatura em tópicos específicos. Um broker MQTT que e distribuirá as mensagens para assinantes, como a plataforma de visualização e aplicativos móveis. A utilização de mensagens retidas permitirá que novos clientes recebam a última temperatura publicada imediatamente após a conexão (SANTOS et al., s.d.).
 Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma digital ocorre via protocolo MQTT (Message Queuing Telemetry Transport), escolhido por sua leveza e eficiência em aplicações IoT.Conforme a necessidade de especificação do sistema, o broker utilizado é o HiveMQ (HIVE, 2026), uma plataforma de broker MQTT bastante usada em ambientes acadêmicos, devido a sua confiabilidade, simplicidade e suporte à integração em tempo real. O ESP32  contribui como editor, enviando as informações coletadas para o broker, enquanto o monitoramento tem o papel de apoiador para atualizar os dados sem atraso.
 
+| Configuração | Valor |
+|---|---|
+| Broker | broker.hivemq.com |
+| Porta | 1883 |
+| Tópico MQTT | termoPets/temperatura |
+| QoS | 0 |
+
+## 5. Tabela dos componentes
 | Componente | Função |
 |---|---|
 | ESP32 | Microcontrolador principal |
