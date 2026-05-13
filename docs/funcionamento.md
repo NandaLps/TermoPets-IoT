@@ -33,5 +33,14 @@ A transmissão dos dados do sensor para a plataforma digital será realizada pel
 No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de temperatura em tópicos específicos. Um broker MQTT que e distribuirá as mensagens para assinantes, como a plataforma de visualização e aplicativos móveis. A utilização de mensagens retidas permitirá que novos clientes recebam a última temperatura publicada imediatamente após a conexão (SANTOS et al., s.d.).
 Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma digital ocorre via protocolo MQTT (Message Queuing Telemetry Transport), escolhido por sua leveza e eficiência em aplicações IoT.Conforme a necessidade de especificação do sistema, o broker utilizado é o HiveMQ (HIVE, 2026), uma plataforma de broker MQTT bastante usada em ambientes acadêmicos, devido a sua confiabilidade, simplicidade e suporte à integração em tempo real. O ESP32  contribui como editor, enviando as informações coletadas para o broker, enquanto o monitoramento tem o papel de apoiador para atualizar os dados sem atraso.
 
-## 5. CONSIDERAÇÕES
+| Componente | Função |
+|---|---|
+| ESP32 | Microcontrolador principal |
+| DS18B20 | Sensor de temperatura |
+| NeoPixel WS2812B | LED RGB para sinalização |
+| Resistor 4.7kΩ | Pull-up do sensor |
+| HiveMQ | Broker MQTT |
+| MQTT Explorer | Monitoramento MQTT |
+
+## CONSIDERAÇÕES
 O projeto se caracteriza como uma aplicação de Internet das Coisas (IoT), integrando sensores, atuadores e comunicação em rede para monitoramento remoto e tomada de decisão em tempo real.
