@@ -57,7 +57,10 @@ Comunicação e Broker MQTTA transmissão de dados entre o ESP32 e a plataforma 
 | Wokwi| plataforma para montagem |
 
 ## Como montar o sistema?
-Escrever aqui
+O sistema proposto para o projeto TermôPets foi desenvolvido utilizando a plataforma de simulação Wokwi com o microcontrolador ESP32, responsável pelo processamento dos dados e pela comunicação via protocolo MQTT. Inicialmente, o projeto previa a utilização do sensor infravermelho MLX90614, escolhido por sua capacidade de medir temperatura sem contato físico direto com a superfície. Entretanto, devido à indisponibilidade do componente na biblioteca do simulador Wokwi, foi utilizado o sensor DS18B20 como substituto para fins de prototipagem e validação lógica do sistema. Apesar da substituição, a estrutura funcional do projeto permaneceu equivalente à proposta original.
+A montagem do circuito foi realizada conectando o sensor DS18B20 ao ESP32 por meio de três ligações principais: alimentação elétrica (VCC), aterramento (GND) e comunicação de dados (DATA). O terminal de alimentação do sensor foi conectado ao pino de 3.3V do ESP32, enquanto o terminal de aterramento foi ligado ao GND da placa. Já o terminal de dados foi conectado ao pino GPIO4 do microcontrolador, permitindo a leitura da temperatura em tempo real. Além disso, foi adicionado um resistor pull-up entre o terminal DATA e a alimentação 3.3V, componente essencial para garantir a estabilidade da comunicação do protocolo OneWire utilizado pelo sensor DS18B20.
+Para complementar o sistema de monitoramento visual, também foi integrado um LED RGB do tipo NeoPixel ao circuito, conectado ao pino GPIO5 do ESP32. Esse componente atua como um indicador visual de segurança térmica, alterando suas cores conforme a temperatura detectada pelo sensor. Quando a temperatura está em níveis seguros, o LED assume a cor verde; em níveis intermediários, apresenta a cor amarela; e em situações de risco térmico elevado, muda para vermelho. Além da sinalização visual local, os dados coletados são enviados em tempo real via protocolo MQTT utilizando o broker HiveMQ, permitindo o monitoramento remoto das condições térmicas simuladas no projeto.
+
 
 
 ## CONSIDERAÇÕES
