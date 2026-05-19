@@ -96,7 +96,7 @@ void loop() {
 
     } else if (temp <= 30) {
 
-      client.publish("termoPets/alerta", "ATENCAO");
+      client.publish("termoPets/alerta", "ATENÇÃO");
 
     } else {
 
