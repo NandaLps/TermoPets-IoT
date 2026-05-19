@@ -10,7 +10,6 @@
 
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
-
 const char* mqtt_server = "broker.hivemq.com";
 
 WiFiClient espClient;
@@ -20,54 +19,59 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 Adafruit_NeoPixel pixels(NUMPIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
-void setup_wifi() {
-  delay(10);
-  Serial.begin(115200);
-  Serial.println();
-  Serial.print("Conectando ao WiFi");
+void reconnectMQTT() {
 
-  WiFi.begin(ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
-  Serial.println("\nWiFi conectado");
-}
-
-void reconnect() {
   while (!client.connected()) {
-    Serial.print("Conectando MQTT...");
-    if (client.connect("ESP32Client")) {
-      Serial.println("conectado");
+
+    Serial.println("Conectando ao MQTT...");
+
+    if (client.connect("fernanda_termoPets_9876")) {
+
+      Serial.println("MQTT conectado!");
+
     } else {
-      Serial.print("erro, rc=");
-      Serial.print(client.state());
+
+      Serial.println("Falha MQTT");
       delay(2000);
+
     }
   }
 }
 
 void setup() {
-  setup_wifi();
+  Serial.begin(115200);
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Conectando ao WiFi...");
+  }
+
+  Serial.println("WiFi conectado!");
+
   client.setServer(mqtt_server, 1883);
+
   sensors.begin();
   pixels.begin();
 }
 
 void loop() {
-  if (!client.connected()) {
-    reconnect();
+
+  if (WiFi.status() == WL_CONNECTED) {
+
+    if (!client.connected()) {
+      reconnectMQTT();
+    }
+
+    client.loop();
   }
-  client.loop();
 
   sensors.requestTemperatures();
   float temp = sensors.getTempCByIndex(0);
 
-  Serial.print("Temperatura: ");
-  Serial.print(temp);
-  Serial.println(" °C");
+  Serial.print("Temp: ");
+  Serial.println(temp);
 
   if (temp <= 25) {
     pixels.setPixelColor(0, pixels.Color(0, 255, 0));
@@ -79,9 +83,27 @@ void loop() {
 
   pixels.show();
 
-  char tempString[8];
-  dtostrf(temp, 1, 2, tempString);
-  client.publish("termoPets/temperatura", tempString);
+  if (client.connected()) {
 
-  delay(2000);
-}
+    char tempString[8];
+    dtostrf(temp, 1, 2, tempString);
+
+    client.publish("termoPets/temperatura", tempString);
+
+    if (temp <= 25) {
+
+     client.publish("termoPets/alerta", "SEGURO");
+
+    } else if (temp <= 30) {
+
+      client.publish("termoPets/alerta", "ATENCAO");
+
+    } else {
+
+      client.publish("termoPets/alerta", "PERIGO");
+
+    }
+  }
+
+  delay(1000);
+} 
