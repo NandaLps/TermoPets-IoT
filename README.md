@@ -77,7 +77,7 @@ O protocolo MQTT foi utilizado para comunicação IoT devido à sua leveza e efi
 
 ## Protótipo do sistema
 
-![Protótipo do sistema](images/protótipo atualizado.png)
+images/protótipo-atualizado.png
 
 # 9. Vídeo
 
