@@ -74,7 +74,10 @@ No TermôPets, o ESP32 atuará como cliente MQTT, publicando os valores de tempe
 O protocolo MQTT foi utilizado para comunicação IoT devido à sua leveza e eficiência em aplicações embarcadas.
 
 # 8. Imagens
-colocar aqui a imagem do protótipo do sistema.
+
+## Protótipo do sistema
+
+![Protótipo do sistema](images/protótipo atualizado.png)
 
 # 9. Vídeo
 
